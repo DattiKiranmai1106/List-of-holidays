@@ -1,0 +1,86 @@
+<mvc:View controllerName="com.sap.kt.list.listofholidays.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m" 	xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}" >
+        <content>
+            <f:SimpleForm id="SimpleFormToolbar"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="4"
+			labelSpanL="3"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="4"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false"
+			ariaLabelledBy="Title1" >
+			<f:toolbar >
+				<Toolbar id="TB1">
+				 <VBox >
+                    <Image class="img" src="../images/KT_Logo (3).png" width="50%"/>
+                    </VBox>
+					<Title text="List Of Holidays" class="tit" />
+					<ComboBox change="onChange"
+				       items="{
+					   path: 'oModelData>/holiday'
+				       }" >
+				       <core:Item key="{oModelData>key}" text="{oModelData>year}" />
+			        </ComboBox>
+				</Toolbar>
+			</f:toolbar>
+            </f:SimpleForm>
+            <Table id="idHolidaysTable" class="tablClass"  alternateRowColors="true" items="{ path:'listHolidays>/list'}" >
+		            <columns >
+			            <Column  >
+			            	<Text class="classtablecolumnh" text="Holiday Name" />
+			            </Column>
+			            <Column>
+			            	<Text class="classtablecolumnh" text="Date" />
+			            </Column>
+			            <Column>
+			            	<Text class="classtablecolumnh" text="Day" />
+			            </Column>
+			            <Column >
+			            	<Text class="classtablecolumnh" text="Bangalore" />
+			            </Column>
+			            <Column>
+			            	<Text class="classtablecolumnh" text="Chennai" />
+			            </Column>
+                        <Column>
+			            	<Text class="classtablecolumnh" text="Hyderabad" />
+			            </Column>
+                        <Column>
+			            	<Text class="classtablecolumnh" text="Delhi/Gurgaon" />
+			            </Column>
+                        <Column>
+			            	<Text class="classtablecolumnh" text="Mumbai/Pune/Ahmedabad" />
+			            </Column>
+                        <Column>
+			            	<Text class="classtablecolumnh" text="Kolkata" />
+			            </Column>
+		            </columns>
+                    <items>
+                        <ColumnListItem id="colId"  class="cell" press="">
+                            <cells class="fun">
+                               <Text text="{listHolidays>kt}"  />
+                               <Text text="{listHolidays>date}"  />
+                               <ObjectStatus text="{listHolidays>day}" state="{=${listHolidays>day} === 'Monday' ? 'Success':${listHolidays>day}==='Friday'?'Information':${listHolidays>day}==='Wednesday'?'Indication08':${listHolidays>day}==='Thursday'?'Indication03':${listHolidays>day}==='Tuesday'?'Indication07':'Error'}" />
+                                <ObjectStatus text="{=${listHolidays>bangalore} === 'X' ? 'Holiday':'No Holiday'}"  state="{=${listHolidays>bangalore} === 'X' ? 'Error':'Success'}" icon="{=${listHolidays>bangalore}==='X'?'sap-icon://error':'sap-icon://sys-enter-2'}"/>
+                                <ObjectStatus text="{=${listHolidays>chennai} === 'X' ? 'Holiday':'No Holiday'}"  state="{=${listHolidays>chennai} === 'X' ? 'Error':'Success'}" icon="{=${listHolidays>chennai}==='X'?'sap-icon://error':'sap-icon://sys-enter-2'}"/>
+                               <ObjectStatus text="{=${listHolidays>hyderabad} === 'X' ? 'Holiday':'No Holiday'}"  state="{=${listHolidays>hyderabad} === 'X' ? 'Error':'Success'}" icon="{=${listHolidays>hyderabad}==='X'?'sap-icon://error':'sap-icon://sys-enter-2'}"/>
+                                <ObjectStatus text="{=${listHolidays>delhi} === 'X' ? 'Holiday':'No Holiday'}"  state="{=${listHolidays>delhi} === 'X' ? 'Error':'Success'}" icon="{=${listHolidays>delhi}==='X'?'sap-icon://error':'sap-icon://sys-enter-2'}"/>
+                                <ObjectStatus text="{=${listHolidays>pune} === 'X' ? 'Holiday':'No Holiday'}"  state="{=${listHolidays>pune} === 'X' ? 'Error':'Success'}" icon="{=${listHolidays>pune}==='X'?'sap-icon://error':'sap-icon://sys-enter-2'}"/>
+                               <ObjectStatus text="{=${listHolidays>kolkata} === 'X' ? 'Holiday':'No Holiday'}"  state="{=${listHolidays>kolkata} === 'X' ? 'Error':'Success'}" icon="{=${listHolidays>kolkata}==='X'?'sap-icon://error':'sap-icon://sys-enter-2'}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                  </Table>  
+        </content>
+    </Page>
+</mvc:View>

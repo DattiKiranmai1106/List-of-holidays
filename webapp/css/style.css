@@ -1,0 +1,19 @@
+/* Enter your custom styles here */
+.img{
+    margin-top: 15px !important;
+}
+.tit{
+    margin-right: 25% !important;
+    color: darkmagenta;
+}
+
+.tablClass th, .tablClass td{
+     border: 1px solid black;
+    }
+
+.tablClass{
+    padding: 30px;
+}
+.classtablecolumnh {
+    margin: auto;
+}
